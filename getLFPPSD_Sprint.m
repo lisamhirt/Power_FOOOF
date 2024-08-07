@@ -22,7 +22,7 @@ opt.WinLength = 0.5;                  % STFT window length (this is one second) 
 opt.WinOverlap = 50;                % Overlap between sliding windows (in %)
 opt.WinAverage = 2;                 % Number of sliding windows averaged by time point
 % specparam opts
-opt.freq_range          = [3 150];
+opt.freq_range          = [1 200];
 opt.peak_width_limits   = [1.5 7];
 opt.max_peaks           = 8;
 opt.min_peak_height     = 6 / 10; % convert from dB to B
@@ -72,8 +72,8 @@ load(tempFile,'EphysBehavTABLE')
 
 % PSD for each channel by hemisphere
 cd(folderLOC)
-
-for dtt = 1:height(EphysBehavTABLE)
+EphysBehavTABLE.SPRINT = cell(height(EphysBehavTABLE),1);
+for dtt = 1:height(EphysBehavTABLE) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
     allChan = EphysBehavTABLE.TrialEvEphys{dtt};
 
