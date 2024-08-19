@@ -75,29 +75,36 @@ cd(folderLOC)
 EphysBehavTABLE.SPRINT = cell(height(EphysBehavTABLE),1);
 for dtt = 1:height(EphysBehavTABLE) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-    allChan = EphysBehavTABLE.TrialEvEphys{dtt};
+    % tmpEpoch = EphysBehavTABLE.TrialEvName{dtt}
+    % matches(tmpEpoch, 'Reponse')
 
-    for ci = 1:height(allChan)
-        tempChan = cell2mat(allChan(ci,:));
- 
-        channel = struct('data',[],'peaks',[],'aperiodics',[],'stats',[]);
-        % Compute short-time Fourier transform
-        [TF, ts] = SPRiNT_stft(tempChan,opt);
-        outputStruct = struct('opts',opt,'freqs',Freqs,'channel',channel);
-        % Parameterize STFTs
-        s_data = SPRiNT_specparam_matlab(TF,outputStruct.freqs,outputStruct.opts,ts);
+    if matches(EphysBehavTABLE.TrialEvName{dtt}, 'Reponse')
+        EphysBehavTABLE.SPRINT{dtt}{ci,:} = [];
+    else
+        allChan = EphysBehavTABLE.TrialEvEphys{dtt};
 
-        s_data.SPRiNT.SPRiNT_models = squeeze(s_data.SPRiNT.SPRiNT_models);
-        s_data.SPRiNT.peak_models = squeeze(s_data.SPRiNT.peak_models);
-        s_data.SPRiNT.aperiodic_models = squeeze(s_data.SPRiNT.aperiodic_models);
+        % for ci = 1:height(allChan)
+        for ci = 1;
+            tempChan = cell2mat(allChan(ci,:));
 
-        sprintOUT = s_data.SPRiNT;
-        EphysBehavTABLE.SPRINT{dtt}{ci,:} = sprintOUT;
-        disp(['bp1',num2str(dtt)])
+            channel = struct('data',[],'peaks',[],'aperiodics',[],'stats',[]);
+            % Compute short-time Fourier transform
+            [TF, ts] = SPRiNT_stft(tempChan,opt);
+            outputStruct = struct('opts',opt,'freqs',Freqs,'channel',channel);
+            % Parameterize STFTs
+            s_data = SPRiNT_specparam_matlab(TF,outputStruct.freqs,outputStruct.opts,ts);
 
-    end % for / allChan
+            s_data.SPRiNT.SPRiNT_models = squeeze(s_data.SPRiNT.SPRiNT_models);
+            s_data.SPRiNT.peak_models = squeeze(s_data.SPRiNT.peak_models);
+            s_data.SPRiNT.aperiodic_models = squeeze(s_data.SPRiNT.aperiodic_models);
 
+            sprintOUT = s_data.SPRiNT;
+            EphysBehavTABLE.SPRINT{dtt}{ci,:} = sprintOUT;
+            disp(['bp1',num2str(dtt)])
 
+        end % for / allChan / ci
+
+    end % if else
 end
 
 
