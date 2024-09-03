@@ -2,7 +2,7 @@
 
 % getLFPPSD_Sprint(tmpSUB , Hemi , saveLOC)
 
-getLFPPSD_Sprint('CLASE009' , 'L_AMY' , 'Y:\LossAversion\Patient folders\CLASE009\NeuroPhys_Processed\SPRINT')
+getLFPPSD_Sprint_v2('CLASE018' , 'L_AMY' , 'Y:\LossAversion\Patient folders\CLASE018\NeuroPhys_Processed\SPRINT')
 
 
 %% 
