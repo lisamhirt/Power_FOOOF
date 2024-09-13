@@ -38,7 +38,7 @@ opt.minnear             = 3;
 Freqs = 0:1/opt.WinLength:opt.sfreq/2;
 
 % CD to patient folder and load behavior/ephys table
-folderLOC = ['Y:\LossAversion\Patient folders\' ,  tmpSUB, '\NeuroPhys_Processed\TrialTABLE\'];
+folderLOC = ['X:\LossAversion\Patient folders\' ,  tmpSUB, '\NeuroPhys_Processed\TrialTABLE\'];
 cd(folderLOC)
 
 matDirA = dir('*.mat');
