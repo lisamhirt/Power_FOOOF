@@ -58,8 +58,7 @@ for dtt = 1:height(trialTab)
 
     for dti = 1:length(nanLoc)
 
-        changeVal = mean([tempChan(nanLoc(dti)-1)  tempChan(nanLoc(dti)+1)]);
-        tempChan(nanLoc(dti)) = changeVal;
+        changeVal = tempChan(nanLoc,)
 
     end 
 
@@ -270,7 +269,7 @@ for chan = 1:nChan
     ag = -(spec(1,end)-spec(1,1))./log10(fs(end)./fs(1)); % aperiodic guess initialization
     for time = 1:nTimes
         % Fit aperiodic
-        % disp(time)
+        disp(time)
         aperiodic_pars = robust_ap_fit(fs, spec(time,:), opt.aperiodic_mode, ag);
         % Remove aperiodic
         flat_spec = flatten_spectrum(fs, spec(time,:), aperiodic_pars, opt.aperiodic_mode);

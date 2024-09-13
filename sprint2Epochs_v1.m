@@ -69,7 +69,7 @@ allGambles = gambleOUT_gain; % copy variable
 % Ephys and trials %
 
 % Create table
-sprintEpochTABLE = table('Size', [540, 6], 'VariableTypes', {'double', 'char', 'char', 'double', 'struct', 'struct'}, 'VariableNames', ...
+sprintEpochTABLE = table('Size', [540, 7], 'VariableTypes', {'double', 'char', 'char', 'double', 'struct', 'struct'}, 'VariableNames', ...
     {'BlockNum', 'TrialEvName', 'GambleType', 'Money', 'Freq', 'Amplitude'});
 
 sprintEpochTABLE{:, "BlockNum"} = repelem(1:135, 4)';

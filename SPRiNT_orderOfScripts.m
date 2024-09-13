@@ -21,7 +21,8 @@ processLA_behav_v3(subjID , ttlStyle, ttlID, NWBdir, NWBname , behDIRsave)
 
 % addpath('L:\GitKraken\Aim1Start_GammaPower')
 
-ephys2behavTable_v1(hemi, sBA, numCon, std_thresh)
+% ephys2behavTable_v1(ptID, hemi, sBA, numCon, std_thresh)
+ephys2behavTable_v1('CLASE022', 'R', 'AH', 1:2, 2)
 
 %% Concatente all individual epochs per trial into one trial. 
 % add things to path 
@@ -38,11 +39,20 @@ sprintBehavTAB_v1('CLASE019', 'R_AH')
 %% Run SPRiNT on Table 
 
 % getLFPPSD_Sprint(tmpSUB , Hemi , saveLOC)
-getLFPPSD_Sprint_v3('CLASE009' , 'R_AMY' , 'Y:\LossAversion\Patient folders\CLASE009\NeuroPhys_Processed\SPRINT')
+getLFPPSD_Sprint_v3('CLASE022' , 'R_AMY' , 'Y:\LossAversion\Patient folders\CLASE022\NeuroPhys_Processed\SPRINT')
 
 %% 
 % sprint2Epochs_v1(partID, Hemi)
-sprint2Epochs_v1('CLASE023', 'R_AMY')
+sprint2Epochs_v1('CLASE022', 'R_AMY')
 
 % partID = 'CLASE018';
 % Hemi = 'L_AMY';
+
+%% Make an csv file from the SPRiNT output 
+
+% SPRiNT_epoch_tab(PtID, Hemi)
+SPRiNT_epoch_tab('CLASE023', 'L_AH')
+
+%% combine all csvs per participant 
+% csvCombineSPRINT(PartID)
+csvCombineSPRINT('CLASE023')
