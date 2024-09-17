@@ -39,11 +39,11 @@ sprintBehavTAB_v1('CLASE019', 'R_AH')
 %% Run SPRiNT on Table 
 
 % getLFPPSD_Sprint(tmpSUB , Hemi , saveLOC)
-getLFPPSD_Sprint_v3('CLASE022' , 'R_AMY' , 'Y:\LossAversion\Patient folders\CLASE022\NeuroPhys_Processed\SPRINT')
+getLFPPSD_Sprint_v3('CLASE026' , 'R_AMY' , 'Y:\LossAversion\Patient folders\CLASE026\NeuroPhys_Processed\SPRINT')
 
 %% 
 % sprint2Epochs_v1(partID, Hemi)
-sprint2Epochs_v1('CLASE022', 'R_AMY')
+sprint2Epochs_v1('CLASE026', 'L_AH')
 
 % partID = 'CLASE018';
 % Hemi = 'L_AMY';
@@ -51,8 +51,8 @@ sprint2Epochs_v1('CLASE022', 'R_AMY')
 %% Make an csv file from the SPRiNT output 
 
 % SPRiNT_epoch_tab(PtID, Hemi)
-SPRiNT_epoch_tab('CLASE023', 'L_AH')
+SPRiNT_epoch_tab('CLASE026', 'L_AH')
 
 %% combine all csvs per participant 
 % csvCombineSPRINT(PartID)
-csvCombineSPRINT('CLASE023')
+csvCombineSPRINT('CLASE026')
